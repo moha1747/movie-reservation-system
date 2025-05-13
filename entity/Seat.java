@@ -11,14 +11,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Seat {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long seatId;
 
     private String seatNumber;
 
-    private Boolean isReserved;
+    private Boolean isReserved = false;
 
     @ManyToOne
-    private ShowTime showtime;
+    @JoinColumn(name = "showtime_id")  // match the column name in DB
+    private Showtime showtime;
 }

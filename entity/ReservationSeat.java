@@ -2,7 +2,6 @@ package com.backend.movie_res_system.entity;
 
 import jakarta.persistence.*;
 
-import com.backend.movie_res_system.entity.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,9 +20,8 @@ public class ReservationSeat {
     @ManyToOne
     private Seat seat;
 
-    private Double priceAtBooking;
-
-    private String seatType;
-
-    private LocalDateTime reservedAt;
+    public ReservationSeat(Reservation reservation, Seat seat) {
+        this.reservation = reservation;
+        this.seat = seat;
+    }
 }

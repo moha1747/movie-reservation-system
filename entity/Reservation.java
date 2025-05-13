@@ -7,23 +7,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
+@Entity
 public class Reservation {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long rid;
 
     private LocalDateTime timestamp;
 
     @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "uid")
     private User user;
 
     @ManyToOne
-    private ShowTime showtime;
+    @JoinColumn(name = "showtime_id", referencedColumnName = "showtime_id")
+    private Showtime showtime;
 
-    @ManyToMany
-    private List<Seat> seats;
+    @OneToMany(mappedBy = "reservation")
+    private List<ReservationSeat> reservationSeats = new ArrayList<>();
 }

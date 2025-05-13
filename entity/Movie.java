@@ -15,15 +15,14 @@ import java.util.*;
 @Getter
 @Setter
 public class Movie {
-    @Id @GeneratedValue private long uid;
-    private String name;
-
-    private String email;
-
-    private String pass;
+    @Id @GeneratedValue private long mid;
+    private String Name;
+    private String Genre;
 
     @OneToMany(mappedBy = "movie")
-    private List<ShowTime> showTimes;
+    private List<Showtime> showtimes;
 
 
+    public void setGenre(String genre) {
+    }
 }
