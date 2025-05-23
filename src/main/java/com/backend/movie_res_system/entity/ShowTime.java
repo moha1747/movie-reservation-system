@@ -1,6 +1,5 @@
 package com.backend.movie_res_system.entity;
 
-import com.backend.movie_res_system.entity.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
