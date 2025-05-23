@@ -2,8 +2,8 @@ package com.backend.movie_res_system.entity;
 
 import jakarta.persistence.*;
 
-import com.backend.movie_res_system.entity.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
 public class ReservationSeat {
     @Id @GeneratedValue
     private Long id;
@@ -21,9 +22,10 @@ public class ReservationSeat {
     @ManyToOne
     private Seat seat;
 
-    private Double priceAtBooking;
+    public ReservationSeat(Reservation reservation, Seat seat) {
+        this.reservation = reservation;
+        this.seat = seat;
+    }
 
-    private String seatType;
 
-    private LocalDateTime reservedAt;
 }

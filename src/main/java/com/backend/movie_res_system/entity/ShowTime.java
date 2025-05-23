@@ -11,8 +11,11 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class ShowTime {
-    @Id @GeneratedValue
+@Table(name = "showtime")
+public class Showtime {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "showtime_id")
     private Long showtimeId;
 
     private LocalDateTime startTime;
